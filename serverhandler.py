@@ -14,12 +14,8 @@ class GameServer(object):
         self.gint = gameinterface.GameInterface(self)
         print 'Game Server socket created'
 
-        try:
-            self.s.bind((HOST, PORT))
-            print 'Game Server bind complete on HOST: ' + HOST + ' on PORT: ' + str(PORT)
-        except socket.error, msg:
-            print 'Bind failed. Error code: ' + str(msg[0]) + ' Message ' + msg[1]
-            self.s.close()
+        self.s.bind((HOST, PORT))
+        print 'Game Server bind complete on HOST: ' + HOST + ' on PORT: ' + str(PORT)
 
         self.s.listen(10)
         print 'Game Server is now listening'
