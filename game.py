@@ -9,8 +9,7 @@ class Game(object):
 	def __init__(self, type, player):
 		self.type = type
 		self.id = generateNewId()
-		self.players = []
-		self.players.append(player)
+		self.players = [player]
 		self.gamestate = ""
 		self.currPlayerIndex = -1
 
