@@ -44,7 +44,7 @@ class GameServer(object):
             self.outputs.remove(s2)
 
     def serve_forever(self):
-        self.inputs = [self.s]
+        self.inputs = [self]
         self.outputs = []
         while True:
             print 'Game Server Re-selecting'
@@ -52,7 +52,7 @@ class GameServer(object):
             print 'Game Server has Selected...now going through each socket'
             for r in readReady:
                 print 'GS Read loop'
-                if r is self.s:
+                if r is self:
                     print 'GS Current socket IS the Game Server socket'
                     conn, addr = r.accept()
                     print 'Game Server accepted connection %d from %s' % (conn.fileno(), addr)
